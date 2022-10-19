@@ -88,3 +88,5 @@ export class SchoolController {
     return this.schoolService.updatePassword(+id, updatePasswordDto);
   }
 }
+
+// teste
