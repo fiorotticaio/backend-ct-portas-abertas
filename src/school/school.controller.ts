@@ -54,6 +54,12 @@ export class SchoolController {
   }
 
   @UseGuards(JwtAuthGuard)
+  @Patch(':id')
+  updateSchoolDto(@Param('id') id: string, @Body(new ValidationPipe({errorHttpStatusCode:422})) updateSchoolDto: UpdateSchoolDto){
+    return this.schoolService.updateSchool(+id, updateSchoolDto);
+  }
+
+  @UseGuards(JwtAuthGuard)
   @Patch('add-event/:id')
   addEvent(@Param('id') id: string, @Body(new ValidationPipe({errorHttpStatusCode: 422})) updateSchoolDto: UpdateSchoolDto) {
     return this.schoolService.addEvent(+id, updateSchoolDto);

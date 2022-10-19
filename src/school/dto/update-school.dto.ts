@@ -6,4 +6,8 @@ export class UpdateSchoolDto extends PartialType(CreateSchoolDto) {
     
     @IsNotEmpty()
     event: object;
+
+    @IsNotEmpty()
+    studentsAmount: number; // FIXME: será que pode colocar junto com esse DTO
+                            // ou vai ter que criar outro só pro studentsAmount
 }

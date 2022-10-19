@@ -49,6 +49,13 @@ export class SchoolService {
     return school.events
   }
 
+  async updateSchool(id: number, updateSchoolDto: UpdateSchoolDto) {
+    try {
+      return await this.schoolRepo.update(id, updateSchoolDto);
+    } catch (err) {
+      throw new HttpException("Falha na atualização da escola. Tente novamente!", HttpStatus.INTERNAL_SERVER_ERROR)     
+    }
+  }
 
   async addEvent(id: number, updateSchoolDto: UpdateSchoolDto) {
     
