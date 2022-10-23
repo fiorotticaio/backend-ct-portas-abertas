@@ -4,7 +4,9 @@ import { Column, Entity, ManyToMany, PrimaryGeneratedColumn, Timestamp } from "t
 
 export enum EventType {
     visit = 'visit',
-    workshop = 'workshop'
+    workshop = 'workshop',
+    booth = 'booth',
+    pocket = 'pocket'
 }
 
 @Entity({name: "Events"})
@@ -19,7 +21,13 @@ export class Event {
     local: string
 
     @Column({type: "timestamp", nullable: true})
-    time: Date 
+    start: Date 
+
+    @Column({type: "timestamp", nullable: true})
+    end: Date 
+
+    @Column({ nullable: true })
+    description: string
 
     @Column()
     capacity: number
